@@ -1,0 +1,7 @@
+---
+# vars file for flask_app
+      app:
+       repo: 'https://github.com/metabol/pythonflask.git'
+       dest: /tmp/pythonflask
+       cmd: FLASK_APP=/tmp/pythonflask/app.py nohup flask run --host=0.0.0.0 --port=5000 &
+       test: curl -L localhost:5000 

@@ -1,0 +1,15 @@
+---
+# tasks file for flask_app
+    - name: Clone repos
+      git:
+       repo: "{{ app.repo }}"
+       dest: "{{ app.dest }}"
+
+    - name: Start Flask app web server
+      shell: "{{ app.cmd }}"
+
+    - name: Test Flask app webserver
+      command: "{{ app.test }}"
+      register: result
+
+    - debug: msg="output-->{{ result.stdout }} | Error --> {{ result.stderr }}"
